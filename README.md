@@ -3,8 +3,6 @@
  
 Boa tarde, tudo bem?
 
-Meu nome é Gustavo e eu estou fazendo o desafio para o BACKEND
-
 
 
 # Requerimentos para o projeto?

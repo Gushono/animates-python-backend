@@ -1,6 +1,5 @@
 from server import start_api
-
-HOST = "127.0.0.1"
+from configurations.enviroment_variables import HOST
 
 
 def main():

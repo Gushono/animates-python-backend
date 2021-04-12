@@ -77,7 +77,7 @@ definitions:
       senha:
         type: "string"
         example: "senha"
-      cnpj:
+      cpf:
         type: "string"
   Usuario:
     type: "object"

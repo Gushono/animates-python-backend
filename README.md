@@ -25,15 +25,6 @@ Boa tarde, tudo bem?
 
 
 # Facilitando o teste dos endpoints:
-
-    Como padrão, ao gerar o banco ele cria dois usuários com as seguintes credênciais: 
- 
-<!-- blank line -->      
-    
-<!-- blank line -->
-    Para facilitar os testes do endpoints, gerei um arquivo que pode ser importado no 
-    postman com o nome (entrevista.postman_collection.json)
-    com todas as chamadas separadas por pasta e seu body
     
 <!-- blank line -->
     

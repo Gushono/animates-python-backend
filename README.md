@@ -1,9 +1,7 @@
-# Teste Conta Simples
+# Animates
 
  
 Boa tarde, tudo bem?
-
-Meu nome é Gustavo e eu estou fazendo o desafio para o BACKEND
 
 
 
@@ -29,12 +27,7 @@ Meu nome é Gustavo e eu estou fazendo o desafio para o BACKEND
 # Facilitando o teste dos endpoints:
 
     Como padrão, ao gerar o banco ele cria dois usuários com as seguintes credênciais: 
-    
-    Usuário: empresa1
-    Senha: 123 
-    
-    Usuário: empresa2
-    Senha: 123
+ 
 <!-- blank line -->      
     
 <!-- blank line -->
@@ -50,26 +43,6 @@ Meu nome é Gustavo e eu estou fazendo o desafio para o BACKEND
 # Autenticacao:
     Para a autenticação, gere o token e passe no HEADER x-auth-token e o token jwt
 
-# Desafios cumpridos:
-<!-- blank line -->
-    1. Criar uma API de login [x]
-
-    A api de login geraum token jwt e salva no banco. Em cada chamada ele valida o token vindo no header
-<!-- blank line -->
-    2. Criar uma API que retornar o saldo da conta [x]
-<!-- blank line -->
-    3. Cria API de extrato da conta -> filtrar por Data de Transação e flag de "Crédito" e "Débito" [x]
-<!-- blank line -->
-    4. Criar API pra retornar o última transação realizada da empresa logada [x]
-<!-- blank line -->
-    5. Endpoint para retornar transações agrupadas por cartão []
-    
-    Não consegui realizar.
-    
-# Agradecimentos
-    Gostaria de agradecer pela oportunidade de demonstrar meus conhecimentos.
-    Foi ótimo passar esse fim de semana fazendo o que amo! 
-    
     
     
 

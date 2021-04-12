@@ -1,0 +1,126 @@
+swagger: "2.0"
+info:
+  description: "Projeto para entrevista do CONTA SIMPLES"
+  version: "1.0.0"
+  title: "Swagger Projeto - Conta Simples"
+  contact:
+    email: "gustavo.honoratonic@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "127.0.0.1:8080"
+basePath: "/v1"
+tags:
+  - name: "Usuário"
+    description: "API de Usuários"
+  - name: "Autenticação"
+    description: "API para validação de usuários"
+schemes:
+  - "https"
+  - "http"
+paths:
+  /usuarios:
+    post:
+      tags:
+        - "Usuário"
+      operationId: "post_usuario"
+      summary: "Cadastro de usuário"
+      description: "Faz o cadastro de um usuário"
+      consumes:
+        - application/json
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          description: "Corpo da requisição"
+          schema:
+            $ref: "#/definitions/UsuarioVO"
+      responses:
+        201:
+          description: "Usuário criado com sucesso"
+          schema:
+            $ref: "#/definitions/Usuario"
+        500:
+          description: "Erro no servidor"
+      x-swagger-router-controller: "server.controllers.usuario_controller"
+  /autenticar:
+    post:
+      tags:
+        - "Autenticação"
+      operationId: "post_autenticacao"
+      summary: "Faz a autenticacao de um usuario"
+      description: "Faz a autenticacao de um usuario"
+      consumes:
+        - application/json
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          description: "Corpo da requisição"
+          schema:
+            $ref: "#/definitions/AutenticacaoVO"
+      responses:
+        200:
+          description: "Autenticado com sucesso!"
+          schema:
+            $ref: "#/definitions/Autenticacao"
+        500:
+          description: "Erro no servidor"
+      x-swagger-router-controller: "server.controllers.login_controller"
+definitions:
+  UsuarioVO:
+    type: "object"
+    properties:
+      nm_usuario:
+        type: "string"
+        example: "teste"
+      senha:
+        type: "string"
+        example: "senha"
+      cnpj:
+        type: "string"
+  Usuario:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        example: 1
+      created_at:
+        type: "string"
+        format: "date-time"
+      nm_usuario:
+        type: "string"
+      cpf:
+        type: "string"
+  UsuarioRelacao:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        example: 1
+      nm_usuario:
+        type: "string"
+  AutenticacaoVO:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        example: 1
+      created_at:
+        type: "string"
+        format: "date-time"
+      nm_usuario:
+        type: "string"
+  Autenticacao:
+    type: "object"
+    properties:
+      token:
+        type: "string"
+      expiration_date:
+        type: "string"
+        format: "date-time"
+      created_at:
+        type: "string"
+        format: "date-time"
+      relacao_usuario:
+        $ref: '#/definitions/UsuarioRelacao'

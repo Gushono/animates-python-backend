@@ -1,0 +1,10 @@
+.idea/
+venv/
+server/__pycache__/
+configurations/__pycache__/
+server/controllers/__pycache__/
+alembic/__pycache__/
+alembic/versions/__pycache__/
+server/models/__pycache__/
+server/repository/__pycache__/
+server/services/__pycache__/

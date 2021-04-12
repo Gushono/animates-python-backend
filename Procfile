@@ -1,2 +1,2 @@
 heroku ps:scale web=1
-web: gunicorn server:wsgi
+web: gunicorn app:server.wsgi

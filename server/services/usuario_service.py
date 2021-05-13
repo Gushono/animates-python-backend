@@ -4,8 +4,7 @@ from werkzeug.exceptions import UnprocessableEntity
 
 from server.models.usuario import Usuario, UsuarioSchema
 from server.repository import base_repository
-from server.repository.usuario_repository import verifica_existencia_usuario, verifica_existencia_cnpj
-from server.services import util
+from server.repository.usuario_repository import verifica_existencia_usuario
 from server.services.util import converter_dto_para_objeto, serialize_entidade
 
 

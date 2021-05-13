@@ -7,14 +7,14 @@ from logging.config import fileConfig
 from alembic import context
 from sqlalchemy import create_engine
 
-from configurations.enviroment_variables import DATABASE_URL
+# from configurations.enviroment_variables import DATABASE_URL
 
 sys.path.insert(0, os.path.realpath(os.path.join(os.path.dirname(__file__), '..')))
 
 from server import db
 
 # noinspection PyUnresolvedReferences
-from server.models import usuario, autenticacao
+from server.models import animal, autenticacao, chat, denuncia, dominio, relacao_match, usuario, usuario_animal
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -39,7 +39,7 @@ target_metadata = db.metadata
 def get_url():
     """  """
 
-    return DATABASE_URL
+    return "postgresql://ayfgxvgcnbysph:f7efe51b406ca44a7a7584034bf34eee30c8e9055b4e290706b32a2a65d53011@ec2-18-206-20-102.compute-1.amazonaws.com:5432/dfah5k5mdju3ak"
 
 
 def run_migrations_offline():

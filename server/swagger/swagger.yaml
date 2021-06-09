@@ -66,6 +66,8 @@ paths:
             $ref: "#/definitions/Usuario"
         500:
           description: "Erro no servidor"
+      security:
+        - apiKey: [ ]
       x-swagger-router-controller: "server.controllers.usuario_controller"
   /dominios:
     get:
@@ -144,6 +146,8 @@ paths:
             $ref: "#/definitions/MatchVO"
         500:
           description: "Erro no servidor"
+      security:
+        - apiKey: [ ]
       x-swagger-router-controller: "server.controllers.match_controller"
   /animal:
     post:

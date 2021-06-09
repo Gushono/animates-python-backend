@@ -42,7 +42,7 @@ def animais_por_usuario(id_usuario):
 
             return serialize_entidade(usuario_animais, UsuarioAnimalSchema)
 
-        raise NotFound(f"Usuário com id {id_usuario} não possuí nenhum animal")
+        return []
 
     except NotFound as ex:
         print(ex)

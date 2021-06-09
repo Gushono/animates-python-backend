@@ -61,11 +61,13 @@ def criar_autenticacao(user: Usuario, autenticacao_dto: dict):
     auth.token = format_token(token)
     auth.expiration_date = expiration_date
 
-    return base_repository.gravar_objeto(auth)
+    base_repository.gravar_objeto(auth)
+
+    return auth.token
 
 
 def gerar_token(autenticacao_dto, expiration_date):
-    token = jwt.encode({"nm_usuario": autenticacao_dto["nm_usuario"],
+    token = jwt.encode({"email": autenticacao_dto["email"],
                         'expiration_date': str(expiration_date)},
                        SECRET_KEY)
 

@@ -2,9 +2,10 @@ import base64
 
 from werkzeug.exceptions import UnprocessableEntity
 
-from server.models.usuario import Usuario, UsuarioSchema
+from server.models.usuario import Usuario, UsuarioSchema, UsuarioSchemaToken
 from server.repository import base_repository
 from server.repository.usuario_repository import verifica_existencia_usuario
+from server.services.login_service import criar_autenticacao
 from server.services.util import converter_dto_para_objeto, serialize_entidade
 
 
@@ -20,7 +21,9 @@ def criar_usuario(usuario_dto):
                 usuario.senha = senha
                 base_repository.gravar_objeto(usuario)
 
-            return serialize_entidade(usuario, UsuarioSchema)
+                token = criar_autenticacao(usuario, usuario_dto)
+                usuario.token = token
+            return serialize_entidade(usuario, UsuarioSchemaToken)
 
         raise UnprocessableEntity("Nome de usuário já existente ou cpf já existente!")
     except KeyError as ex:

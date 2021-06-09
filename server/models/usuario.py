@@ -32,3 +32,15 @@ class UsuarioSchema(ma.ModelSchema):
             "email",
             "created_at",
         )
+
+
+class UsuarioSchemaToken(ma.ModelSchema):
+    class Meta:
+        fields = (
+            "id",
+            "nome",
+            "sobrenome",
+            "email",
+            "token",
+            "created_at",
+        )

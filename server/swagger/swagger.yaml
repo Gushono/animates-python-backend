@@ -67,6 +67,55 @@ paths:
         500:
           description: "Erro no servidor"
       x-swagger-router-controller: "server.controllers.login_controller"
+  /match:
+    post:
+      tags:
+        - "Match"
+      operationId: "post_match"
+      summary: "Cria o match"
+      description: "Match"
+      consumes:
+        - application/json
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          description: "Corpo da requisição"
+          schema:
+            $ref: "#/definitions/MatchVO"
+      responses:
+        200:
+          description: "Autenticado com sucesso!"
+          schema:
+            $ref: "#/definitions/MatchVO"
+        500:
+          description: "Erro no servidor"
+      x-swagger-router-controller: "server.controllers.match_controller"
+  /animal:
+    post:
+      tags:
+        - "Animal"
+      operationId: "post_animal"
+      summary: "Cria o Animal"
+      description: "Animal"
+      consumes:
+        - application/json
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          description: "Corpo da requisição"
+          schema:
+            $ref: "#/definitions/AnimalVO"
+      responses:
+        200:
+          description: "Autenticado com sucesso!"
+          schema:
+            $ref: "#/definitions/AnimalVO"
+        500:
+          description: "Erro no servidor"
+      x-swagger-router-controller: "server.controllers.animal_controller"
+
 definitions:
   UsuarioVO:
     type: "object"
@@ -124,3 +173,30 @@ definitions:
         format: "date-time"
       relacao_usuario:
         $ref: '#/definitions/UsuarioRelacao'
+  MatchVO:
+    type: "object"
+    properties:
+      id_animal:
+        type: "integer"
+      id_animal_match:
+        type: "integer"
+      fl_match:
+        type: "boolean"
+      fl_match_animal_match:
+        type: "boolean"
+  AnimalVO:
+    type: "object"
+    properties:
+      id_usuario:
+        type: "integer"
+      id_tp_animal:
+        type: "integer"
+      nome:
+        type: "string"
+      descricao:
+        type: "string"
+      fl_buscando_parceiro:
+        type: "boolean"
+      fl_para_adocao:
+        type: "boolean"
+

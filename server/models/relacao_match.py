@@ -38,7 +38,7 @@ class RelacaoMatchSchema(ma.ModelSchema):
         fields = (
             "id",
             "animal",
-            "animal_match"
+            "animal_match",
             "fl_match",
             "fl_match_animal_match"
         )

@@ -1,6 +1,7 @@
 import re
 
 import connexion
+import flask
 from flask import g
 from werkzeug.exceptions import Unauthorized
 
@@ -24,5 +25,7 @@ def verify_auth():
 
     if x_auth_token is None:
         raise Unauthorized()
+
+    flask.g.username = 'zezinho'
 
     return

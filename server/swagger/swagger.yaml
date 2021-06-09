@@ -163,7 +163,7 @@ definitions:
       created_at:
         type: "string"
         format: "date-time"
-      nm_usuario:
+      email:
         type: "string"
   Autenticacao:
     type: "object"

@@ -52,7 +52,7 @@ def autentica_user(autenticacao_dto):
     raise Unauthorized("Usuário ou senha invalida")
 
 
-def criar_autenticacao(user: Usuario, autenticacao_dto: dict):
+def criar_autenticacao(user: Usuario, autenticacao_dto: dict) -> Autenticacao:
     expiration_date = datetime.datetime.utcnow() + datetime.timedelta(minutes=30)
     token = gerar_token(autenticacao_dto, expiration_date)
 
@@ -61,9 +61,7 @@ def criar_autenticacao(user: Usuario, autenticacao_dto: dict):
     auth.token = format_token(token)
     auth.expiration_date = expiration_date
 
-    base_repository.gravar_objeto(auth)
-
-    return auth.token
+    return base_repository.gravar_objeto(auth)
 
 
 def gerar_token(autenticacao_dto, expiration_date):

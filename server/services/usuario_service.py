@@ -22,7 +22,7 @@ def criar_usuario(usuario_dto):
                 base_repository.gravar_objeto(usuario)
 
                 token = criar_autenticacao(usuario, usuario_dto)
-                usuario.token = token
+                usuario.token = token.token
             return serialize_entidade(usuario, UsuarioSchemaToken)
 
         raise UnprocessableEntity("Nome de usuário já existente ou cpf já existente!")

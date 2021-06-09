@@ -4,6 +4,16 @@ from werkzeug.exceptions import UnprocessableEntity
 
 from server import db
 from server.services import util
+from server.services.util import fabrica_filtros, valida_no_content_ou_no_found, serialize_pagination
+
+
+def get_filtros(clazz):
+    filtros = {}
+
+    if hasattr(clazz, 'tp_dominio'):
+        filtros["tp_dominio"] = lambda tp_dominio: (clazz.tp_dominio == tp_dominio, None)
+
+    return filtros
 
 
 def gravar_objeto(objeto, commit=True):
@@ -72,3 +82,21 @@ def get_objetos_por_campo(clazz, campo, id_objeto):
     except Exception as ex:
         print(f"Erro ao recuperar a boleta: {ex}")
         db.session.rollback()
+
+
+def listar(clazz, schema, parametros, serialize=True):
+    filtros, joins, pagina = fabrica_filtros(get_filtros(clazz), parametros)
+
+    pagination = (
+        clazz().query.join(*joins)
+            .filter(*filtros)
+            .paginate(per_page=20, max_per_page=30, page=pagina)
+    )
+
+    if not valida_no_content_ou_no_found(filtros, pagination.items):
+        print(f"A busca de {clazz} não retornou registros")
+
+    if serialize is False:
+        return pagination
+
+    return serialize_pagination(schema, pagination)

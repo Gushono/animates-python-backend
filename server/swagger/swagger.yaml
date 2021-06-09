@@ -67,6 +67,34 @@ paths:
         500:
           description: "Erro no servidor"
       x-swagger-router-controller: "server.controllers.usuario_controller"
+  /dominios:
+    get:
+      tags:
+        - "dominio"
+      operationId: "get_listar_dominios"
+      summary: "Lista dominios"
+      description: "Lista dominios"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "tp_dominio"
+          in: "query"
+          required: false
+          description: "Busca os dominios por um tipo de dominio"
+          type: "string"
+        - name: "nm_dominio"
+          in: "query"
+          required: false
+          type: "string"
+          description: "Busca os dominios por um nome de dominio"
+      responses:
+        200:
+          description: "Retorna uma lista com todos os dominios"
+          schema:
+            $ref: "#/definitions/DominioPaginado"
+        500:
+          description: "Erro que o servidor não soube lidar"
+      x-swagger-router-controller: "server.controllers.dominio_controller"
   /autenticacao:
     post:
       tags:
@@ -141,6 +169,33 @@ paths:
       x-swagger-router-controller: "server.controllers.animal_controller"
 
 definitions:
+  Paginado:
+    type: object
+    properties:
+      page:
+        type: integer
+        example: 2
+      has_next:
+        type: boolean
+        example: false
+      has_prev:
+        type: boolean
+        example: true
+      next_num:
+        type: integer
+        example: 3
+      pages:
+        type: integer
+        example: 100
+      per_page:
+        type: integer
+        example: 50
+      prev_num:
+        type: integer
+        example: 2
+      total:
+        type: integer
+        example: 5000
   UsuarioVO:
     type: "object"
     properties:
@@ -228,4 +283,25 @@ definitions:
         type: "boolean"
       fl_para_adocao:
         type: "boolean"
+  DominioPaginado:
+    allOf:
+      - $ref: '#/definitions/Paginado'
+      - type: object
+        properties:
+          items:
+            type: array
+            items:
+              $ref: '#/definitions/Dominio'
+  Dominio:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      tp_dominio:
+        type: "string"
+        x-nullable: true
+      nm_dominio:
+        type: "string"
+        x-nullable: true
 

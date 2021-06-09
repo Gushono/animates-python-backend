@@ -13,8 +13,9 @@ class Usuario(db.Model):
     __tablename__ = "tb_usuario"
 
     id = Column(Integer, primary_key=True)
-    nm_usuario = Column(String, unique=True)
-    cpf = Column(String, unique=True)
+    nome = Column(String)
+    sobrenome = Column(String)
+    email = Column(String, unique=True)
     senha = Column(String)
 
     created_at = Column(DateTime, default=datetime.now)
@@ -26,7 +27,8 @@ class UsuarioSchema(ma.ModelSchema):
     class Meta:
         fields = (
             "id",
-            "nm_usuario",
-            "cpf",
+            "nome",
+            "sobrenome",
+            "email",
             "created_at",
         )

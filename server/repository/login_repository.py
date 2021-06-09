@@ -5,14 +5,14 @@ from server.models.autenticacao import Autenticacao
 from server.models.usuario import Usuario
 
 
-def verifica_user_and_password(nm_usuario, senha):
+def verifica_user_and_password(email, senha):
     utf8_password = senha.encode("utf-8")
     encoded_password_str = str(base64.b64encode(utf8_password))
     formated_password = encoded_password_str.replace(encoded_password_str[0: 2], '').replace(encoded_password_str[-1],
                                                                                              '')
 
     return db.session.query(Usuario). \
-        filter(Usuario.nm_usuario == nm_usuario). \
+        filter(Usuario.email == email). \
         filter(Usuario.senha == formated_password).first()
 
 

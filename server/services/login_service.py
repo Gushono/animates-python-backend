@@ -42,7 +42,7 @@ def valida_token(token):
 
 
 def autentica_user(autenticacao_dto):
-    user = login_repository.verifica_user_and_password(autenticacao_dto["nm_usuario"],
+    user = login_repository.verifica_user_and_password(autenticacao_dto["email"],
                                                        autenticacao_dto["senha"])
 
     if user is not None:

@@ -29,7 +29,7 @@ class UsuarioAnimal(db.Model):
 
 
 class UsuarioAnimalSchema(ma.ModelSchema):
-    usuario = fields.Nested(UsuarioSchema, only=('id', 'nm_usuario'))
+    usuario = fields.Nested(UsuarioSchema, only=('id', 'email'))
     animal = fields.Nested(AnimalSchema)
 
     class Meta:

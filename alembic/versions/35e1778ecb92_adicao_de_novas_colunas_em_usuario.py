@@ -1,8 +1,8 @@
-"""Adicao models
+"""Adicao de novas colunas em usuario
 
-Revision ID: 0cb2d5003c61
+Revision ID: 35e1778ecb92
 Revises: 
-Create Date: 2021-05-13 09:07:26.741290
+Create Date: 2021-06-09 16:40:04.321654
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '0cb2d5003c61'
+revision = '35e1778ecb92'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -28,15 +28,15 @@ def upgrade():
     )
     op.create_table('tb_usuario',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('nm_usuario', sa.String(), nullable=True),
-    sa.Column('cpf', sa.String(), nullable=True),
+    sa.Column('nome', sa.String(), nullable=True),
+    sa.Column('sobrenome', sa.String(), nullable=True),
+    sa.Column('email', sa.String(), nullable=True),
     sa.Column('senha', sa.String(), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.Column('updated_by', sa.String(), nullable=True),
     sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('cpf'),
-    sa.UniqueConstraint('nm_usuario')
+    sa.UniqueConstraint('email')
     )
     op.create_table('tb_animal',
     sa.Column('id', sa.Integer(), nullable=False),

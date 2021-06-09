@@ -12,8 +12,8 @@ def verify_auth():
     allowed_urls = [
         "/v1/ui",
         "/v1/ui/",
-        "/v1/usuarios",
-        "/v1/autenticar",
+        "/v1/usuario",
+        "/v1/autenticacao",
         "/v1/swagger.json",
     ]
 

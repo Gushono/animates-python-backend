@@ -21,9 +21,12 @@ def verify_auth():
         if re.fullmatch(allowed_url, connexion.request.path):
             return
 
+    print('connexxion', connexion)
+    print('conexxin request', connexion.request)
+    print('conexion request headers', connexion.request.headers)
     x_api_key = connexion.request.headers.get("x-api-key")
     print('ESSE É O X API KEY: ', x_api_key)
 
     if x_api_key is None:
-        raise Unauthorized()
+        raise Unauthorized("Token não passado no header")
 

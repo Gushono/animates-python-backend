@@ -26,6 +26,6 @@ def verify_auth():
     if x_auth_token is None:
         raise Unauthorized()
 
-    flask.g.username = 'zezinho'
+    # flask.g.username = 'zezinho'
 
     return

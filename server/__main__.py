@@ -1,5 +1,5 @@
 from server import start_api
-from configurations.enviroment_variables import HOST
+from server.configurations.enviroment_variables import HOST
 
 
 def main():

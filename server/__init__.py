@@ -3,8 +3,8 @@ from flask_cors import CORS
 from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
 
-from configurations.authenticator import verify_auth
-from configurations.enviroment_variables import DATABASE_URL, HOST
+from server.configurations.authenticator import verify_auth
+from server.configurations.enviroment_variables import DATABASE_URL, HOST
 
 db = SQLAlchemy()
 ma = Marshmallow()

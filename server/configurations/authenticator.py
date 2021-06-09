@@ -21,11 +21,9 @@ def verify_auth():
         if re.fullmatch(allowed_url, connexion.request.path):
             return
 
-    x_auth_token = connexion.request.headers.get("x-auth-token")
+    x_api_key = connexion.request.headers.get("x_api_key")
 
-    if x_auth_token is None:
+    if x_api_key is None:
         raise Unauthorized()
-
-    # flask.g.username = 'zezinho'
 
     return

@@ -5,7 +5,7 @@ import connexion
 import jwt
 from werkzeug.exceptions import Unauthorized
 
-from configurations.enviroment_variables import SECRET_KEY
+from server.configurations.enviroment_variables import SECRET_KEY
 from server.models.autenticacao import Autenticacao, AutenticacaoSchema
 from server.models.usuario import Usuario
 from server.repository import login_repository, base_repository

@@ -1,7 +1,7 @@
 .idea/
 venv/
 server/__pycache__/
-configurations/__pycache__/
+server/configurations/__pycache__/
 server/controllers/__pycache__/
 alembic/__pycache__/
 alembic/versions/__pycache__/

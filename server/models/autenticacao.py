@@ -24,7 +24,7 @@ class Autenticacao(db.Model):
 
 
 class AutenticacaoSchema(ma.ModelSchema):
-    relacao_usuario = fields.Nested(UsuarioSchema, only=('id', 'nm_usuario'))
+    relacao_usuario = fields.Nested(UsuarioSchema, only=('id', 'email'))
 
     class Meta:
         fields = (

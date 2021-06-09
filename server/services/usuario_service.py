@@ -11,7 +11,7 @@ from server.services.util import converter_dto_para_objeto, serialize_entidade
 def criar_usuario(usuario_dto):
     try:
 
-        if verifica_existencia_usuario(usuario_dto["nm_usuario"]) is None:
+        if verifica_existencia_usuario(usuario_dto["email"]) is None:
 
             usuario = converter_dto_para_objeto(Usuario, usuario_dto)
 

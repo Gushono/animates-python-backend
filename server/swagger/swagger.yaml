@@ -19,7 +19,7 @@ schemes:
   - "https"
   - "http"
 paths:
-  /usuarios:
+  /usuario:
     post:
       tags:
         - "Usuário"
@@ -43,7 +43,7 @@ paths:
         500:
           description: "Erro no servidor"
       x-swagger-router-controller: "server.controllers.usuario_controller"
-  /autenticar:
+  /autenticacao:
     post:
       tags:
         - "Autenticação"
@@ -120,14 +120,19 @@ definitions:
   UsuarioVO:
     type: "object"
     properties:
-      nm_usuario:
+      nome:
         type: "string"
         example: "teste"
+      sobrenome:
+        type: "string"
+        example: "teste"
+      email:
+        type: "string"
+        example: "email"
       senha:
         type: "string"
         example: "senha"
-      cpf:
-        type: "string"
+
   Usuario:
     type: "object"
     properties:

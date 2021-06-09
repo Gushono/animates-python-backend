@@ -6,7 +6,7 @@ from server.services import usuario_service
 
 def post_usuario(body: dict) -> Tuple[UsuarioSchema, int]:
     """
-    POST -> /usuarios
+    POST -> /usuario
 
     :param body: UsuarioDTO no SWAGGER
 

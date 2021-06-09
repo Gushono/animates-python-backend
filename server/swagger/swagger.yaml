@@ -67,34 +67,34 @@ paths:
         500:
           description: "Erro no servidor"
       x-swagger-router-controller: "server.controllers.usuario_controller"
-#  /dominios:
-#    get:
-#      tags:
-#        - "dominio"
-#      operationId: "get_listar_dominios"
-#      summary: "Lista dominios"
-#      description: "Lista dominios"
-#      consumes:
-#        - "application/json"
-#      parameters:
-#        - name: "tp_dominio"
-#          in: "query"
-#          required: false
-#          description: "Busca os dominios por um tipo de dominio"
-#          type: "string"
-#        - name: "nm_dominio"
-#          in: "query"
-#          required: false
-#          type: "string"
-#          description: "Busca os dominios por um nome de dominio"
-#      responses:
-#        200:
-#          description: "Retorna uma lista com todos os dominios"
-#          schema:
-#            $ref: "#/definitions/DominioPaginado"
-#        500:
-#          description: "Erro que o servidor não soube lidar"
-#      x-swagger-router-controller: "server.controllers.dominio_controller"
+  /dominios:
+    get:
+      tags:
+        - "dominio"
+      operationId: "get_listar_dominios"
+      summary: "Lista dominios"
+      description: "Lista dominios"
+      consumes:
+        - "application/json"
+      parameters:
+        - name: "tp_dominio"
+          in: "query"
+          required: false
+          description: "Busca os dominios por um tipo de dominio"
+          type: "string"
+        - name: "nm_dominio"
+          in: "query"
+          required: false
+          type: "string"
+          description: "Busca os dominios por um nome de dominio"
+      responses:
+        200:
+          description: "Retorna uma lista com todos os dominios"
+          schema:
+            $ref: "#/definitions/DominioPaginado"
+        500:
+          description: "Erro que o servidor não soube lidar"
+      x-swagger-router-controller: "server.controllers.dominio_controller"
   /autenticacao:
     post:
       tags:

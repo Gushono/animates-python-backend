@@ -18,7 +18,7 @@ def verify_auth():
     ]
 
     for allowed_url in allowed_urls:
-        if re.fullmatch(allowed_url, connexion.request.path):
+        if re.match(allowed_url, connexion.request.path):
             return
 
     print('connexxion', connexion)

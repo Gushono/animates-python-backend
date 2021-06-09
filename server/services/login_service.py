@@ -74,6 +74,4 @@ def gerar_token(user, autenticacao_dto, expiration_date):
 
 
 def format_token(token):
-    str_token = str(token)
-    formated_token = str_token.replace(str_token[0: 2], '').replace(str_token[-1], '')
-    return formated_token
+    return str(token)

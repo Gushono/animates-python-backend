@@ -31,6 +31,8 @@ def criar_usuario(usuario_dto):
         raise UnprocessableEntity(f"Erro ao acessar a key {ex}, verifique o seu body")
 
 
+# def verifica_exis
+
 def criar_password_hash(password):
     pass_encoded_str = str(base64.b64encode(password))
     pass_string_formated = pass_encoded_str.replace(pass_encoded_str[0: 2], '').replace(pass_encoded_str[-1], '')

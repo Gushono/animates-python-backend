@@ -54,7 +54,7 @@ def autentica_user(autenticacao_dto):
 
 def criar_autenticacao(user: Usuario, autenticacao_dto: dict) -> Autenticacao:
     expiration_date = datetime.datetime.utcnow() + datetime.timedelta(minutes=30)
-    token = gerar_token(autenticacao_dto, expiration_date)
+    token = gerar_token(user, autenticacao_dto, expiration_date)
 
     auth = Autenticacao()
     auth.relacao_usuario = user
@@ -64,8 +64,9 @@ def criar_autenticacao(user: Usuario, autenticacao_dto: dict) -> Autenticacao:
     return base_repository.gravar_objeto(auth)
 
 
-def gerar_token(autenticacao_dto, expiration_date):
+def gerar_token(user, autenticacao_dto, expiration_date):
     token = jwt.encode({"email": autenticacao_dto["email"],
+                        "id": user.id,
                         'expiration_date': str(expiration_date)},
                        SECRET_KEY)
 

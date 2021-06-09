@@ -19,6 +19,7 @@ class Dominio(db.Model):
     created_at = Column(DateTime, default=datetime.now)
     updated_at = Column(DateTime, default=datetime.now, onupdate=datetime.now)
 
+
 class DominioSchema(ma.ModelSchema):
 
     class Meta:

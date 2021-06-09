@@ -74,7 +74,7 @@ paths:
       operationId: "get_listar_dominios"
       summary: "Lista dominios"
       description: "Lista dominios"
-      produces:
+      consumes:
         - "application/json"
       parameters:
         - name: "tp_dominio"

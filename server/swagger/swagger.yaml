@@ -19,6 +19,7 @@ schemes:
   - "https"
   - "http"
 paths:
+
   /usuario:
     post:
       tags:
@@ -38,6 +39,29 @@ paths:
       responses:
         201:
           description: "Usuário criado com sucesso"
+          schema:
+            $ref: "#/definitions/Usuario"
+        500:
+          description: "Erro no servidor"
+      x-swagger-router-controller: "server.controllers.usuario_controller"
+  /usuario/{id_usuario}/animal:
+    get:
+      tags:
+        - "Usuário"
+      operationId: "get_usuario_animal"
+      summary: "Cadastro de usuário"
+      description: "Faz o cadastro de um usuário"
+      consumes:
+        - application/json
+      parameters:
+        - name: "id_usuario"
+          in: path
+          required: true
+          type: "integer"
+          description: "Id do usuário"
+      responses:
+        200:
+          description: "Usuário retornado com sucesso"
           schema:
             $ref: "#/definitions/Usuario"
         500:

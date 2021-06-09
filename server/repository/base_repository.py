@@ -57,3 +57,18 @@ def get_objeto_por_id(clazz, id_objeto):
     except Exception as ex:
         print(f"Erro ao recuperar a boleta: {ex}")
         db.session.rollback()
+
+
+def get_objetos_por_campo(clazz, campo, id_objeto):
+    try:
+        query = db.session.query(clazz).filter(campo == id_objeto)
+
+        return query.all()
+
+    except AttributeError as ex:
+        print(f"Erro ao acessar atributo no get_objeto_por_id, ex: {ex}")
+        db.session.rollback()
+        raise UnprocessableEntity(f"Erro ao tentar acessar um atributo do objeto {clazz}, utilize o GUID ou o ID")
+    except Exception as ex:
+        print(f"Erro ao recuperar a boleta: {ex}")
+        db.session.rollback()

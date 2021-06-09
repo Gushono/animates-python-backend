@@ -1,8 +1,9 @@
 import base64
 
-from werkzeug.exceptions import UnprocessableEntity
+from werkzeug.exceptions import UnprocessableEntity, NotFound
 
 from server.models.usuario import Usuario, UsuarioSchema, UsuarioSchemaToken
+from server.models.usuario_animal import UsuarioAnimal, UsuarioAnimalSchema
 from server.repository import base_repository
 from server.repository.usuario_repository import verifica_existencia_usuario
 from server.services.login_service import criar_autenticacao
@@ -31,7 +32,24 @@ def criar_usuario(usuario_dto):
         raise UnprocessableEntity(f"Erro ao acessar a key {ex}, verifique o seu body")
 
 
-# def verifica_exis
+def animais_por_usuario(id_usuario):
+    try:
+        usuario_animais = base_repository.get_objetos_por_campo(UsuarioAnimal,
+                                                                UsuarioAnimal.id_usuario,
+                                                                id_usuario)
+
+        if usuario_animais:
+
+            return serialize_entidade(usuario_animais, UsuarioAnimalSchema)
+
+        raise NotFound(f"Usuário com id {id_usuario} não possuí nenhum animal")
+
+    except NotFound as ex:
+        print(ex)
+        raise ex
+    except Exception as ex:
+        print(ex)
+        raise ex
 
 def criar_password_hash(password):
     pass_encoded_str = str(base64.b64encode(password))

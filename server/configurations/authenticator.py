@@ -22,8 +22,8 @@ def verify_auth():
             return
 
     x_api_key = connexion.request.headers.get("x-api-key")
+    print('ESSE É O X API KEY: ', x_api_key)
 
     if x_api_key is None:
         raise Unauthorized()
 
-    return
